@@ -27,11 +27,6 @@ export const styles = StyleSheet.create({
     opacity: 1,
     paddingVertical: responsive.padding(15),
   },
-  errorText: {
-    color: 'red',
-    marginStart: 10,
-    marginBottom: 10,
-  },
   active: {fontWeight: 'bold', opacity: 1},
   inActive: {fontWeight: 'bold', opacity: 0.7},
   languageContainer:{

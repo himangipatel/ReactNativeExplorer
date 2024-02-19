@@ -16,7 +16,7 @@ const useValidateEmailPass = () => {
 
   const validatePassword = (password: string) => {
     const regex =
-      /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).*[A-Za-z0-9].*$/;
+      /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z0-9]).{8,15}$/;
 
     const isValidPassword = regex.test(password);
     setIsValidPassword(isValidPassword);

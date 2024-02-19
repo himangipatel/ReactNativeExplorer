@@ -7,10 +7,10 @@ import {
   TextInput,
   StyleSheet,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {selectLanguage} from '../redux/slices/languageSlice';
-import { useAppSelector } from '../redux/store';
-import { colors } from '../utils/colors';
+import {useAppSelector} from '../redux/store';
+import {colors} from '../utils/colors';
 
 interface AppTextInputProps {
   style?: StyleProp<TextStyle> | undefined;
@@ -18,24 +18,45 @@ interface AppTextInputProps {
   secureTextEntry?: boolean | false;
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters' | undefined;
   keyboardType?: KeyboardTypeOptions | undefined;
-  value?: string | undefined;
+  value?: string | '';
   onChangeText?: ((text: string) => void) | undefined;
+  showError?: boolean | false;
+  errorMessage?: string | '';
 }
 
 const AppTextInput = (props: AppTextInputProps) => {
   const local = useAppSelector(selectLanguage);
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = (isFocused: boolean) => {
+    setIsFocused(isFocused);
+  };
+
+  const isUserStartTyping = () =>
+    props.value == undefined ? false : props.value.length == 0 ? false : true;
 
   return (
-    <TextInput
-      style={[props.style, styles.textInput,{textAlign:local=='ar'?'right':'left'}]}
-      placeholder={props.placeholder}
-      placeholderTextColor={colors.gray}
-      autoCapitalize={props.autoCapitalize??'none'}
-      keyboardType={props.keyboardType}
-      value={props.value}
-      secureTextEntry={props.secureTextEntry}
-      onChangeText={props.onChangeText}
-    />
+    <View>
+      <TextInput
+        style={[
+          props.style,
+          styles.textInput,
+          {textAlign: local == 'ar' ? 'right' : 'left'},
+        ]}
+        placeholder={props.placeholder}
+        placeholderTextColor={colors.gray}
+        autoCapitalize={props.autoCapitalize ?? 'none'}
+        keyboardType={props.keyboardType}
+        value={props.value}
+        onFocus={() => handleFocus(true)}
+        onBlur={() => handleFocus(false)}
+        secureTextEntry={props.secureTextEntry}
+        onChangeText={props.onChangeText}
+      />
+      {isFocused && props.showError && isUserStartTyping() && (
+        <Text style={styles.errorText}>{props.errorMessage}</Text>
+      )}
+    </View>
   );
 };
 
@@ -48,6 +69,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 15,
     margin: 10,
-    color:colors.primary
+    color: colors.primary,
+  },
+  errorText: {
+    color: 'red',
+    marginStart: 10,
+    marginBottom: 10,
   },
 });

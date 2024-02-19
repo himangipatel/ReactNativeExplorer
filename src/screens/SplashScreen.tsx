@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React, {useEffect, useLayoutEffect} from 'react';
 import LottieView from 'lottie-react-native';
 import {images} from '../utils/images';
@@ -9,6 +9,8 @@ import {selectUser} from '../redux/slices/authSlice';
 import {selectLanguage} from '../redux/slices/languageSlice';
 import useLocalize from '../hooks/useLocalize';
 import {useAppSelector} from '../redux/store';
+import {colors} from '../utils/colors';
+import responsive from '../utils/responsive';
 
 interface SplashProps {
   navigation: StackNavigationProp<RootStackParamList, 'Splash'>;
@@ -19,25 +21,34 @@ const SplashScreen = ({navigation}: SplashProps) => {
   const local = useAppSelector(selectLanguage);
   const {setI18nConfig} = useLocalize();
 
+  const navigateToNextScreen = () => {
+    navigation.replace(
+      isLoggedIn == null ? screens.login : screens.popularMovies,
+      {local: local},
+    );
+  };
   useEffect(() => {
     setTimeout(() => {
       setI18nConfig(local);
-      navigation.replace(
-        isLoggedIn == null ? screens.login : screens.popularMovies,
-        {local: local},
-      );
+      navigateToNextScreen()
     }, 1000);
-  }, []);
+  }, [isLoggedIn]);
+
   return (
-    <View style={{backgroundColor: 'black'}}>
+    <View style={styles.container}>
       <LottieView
         source={images.landingAnimation}
-        style={{width: '100%', height: '100%'}}
+        style={styles.splashView}
         autoPlay
         loop
       />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {backgroundColor: colors.primary},
+  splashView: {width: responsive.pWidth(100), height: responsive.pHeight(100)},
+});
 
 export default SplashScreen;

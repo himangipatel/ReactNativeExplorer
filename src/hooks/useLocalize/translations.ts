@@ -11,6 +11,9 @@ export const translations: TranslationType = {
     [TRANSLATION_KEYS.MOST_POPULAR]: 'Most Popular Movies',
     [TRANSLATION_KEYS.ENGLISH]: 'ENGLISH',
     [TRANSLATION_KEYS.ARABIC]: 'ARABIC',
+    [TRANSLATION_KEYS.ENTER_VALID_EMAIL]:'Please enter a valid email address.',
+    [TRANSLATION_KEYS.ENTER_VALID_PASSWORD]:'Please enter a valid password containing Minimum length 8,Atleast one uppercase letter,At least one lowercase letter,Atleast one digit,'
+
   },
   ar: {
     [TRANSLATION_KEYS.APP_TITLE]: 'الأفلام الأكثر شعبية في كل العصور',
@@ -21,5 +24,11 @@ export const translations: TranslationType = {
     [TRANSLATION_KEYS.MOST_POPULAR]: 'الأفلام الأكثر شعبية',
     [TRANSLATION_KEYS.ENGLISH]: 'إنجليزي',
     [TRANSLATION_KEYS.ARABIC]: 'عربي',
+    [TRANSLATION_KEYS.ENTER_VALID_EMAIL]:'يرجى إدخال عنوان بريد إلكتروني صالح.',
+    [TRANSLATION_KEYS.ENTER_VALID_PASSWORD]:`الرجاء إدخال كلمة مرور صالحة تحتوي على {'\n'}الحد الأدنى للطول 8{'\n'}At
+    حرف كبير واحد على الأقل{'\n'}حرف صغير واحد على الأقل.{'\n'}At
+    رقم واحد على الأقل {'\n'}`
+
+
   },
 };

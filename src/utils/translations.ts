@@ -7,5 +7,7 @@ export const TRANSLATION_KEYS = {
   ENTER_PASSWORD: 'enterPassword',
   MOST_POPULAR:'mostPopular',
   ENGLISH:'english',
-  ARABIC:'arabic'
+  ARABIC:'arabic',
+  ENTER_VALID_EMAIL:'enter_valid_email',
+  ENTER_VALID_PASSWORD:'enter_valid_password'
 };

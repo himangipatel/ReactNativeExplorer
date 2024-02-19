@@ -12,13 +12,13 @@ const translate = memoize(
 
 export default function useLocalize() {
   const setI18nConfig = (language: string) => {
-    const fallbackTranslationSettings = {
+    const translation = {
       languageTag: language,
       isRTL: language === 'ar',
     };
 
     const {languageTag, isRTL} =
-      fallbackTranslationSettings;
+      translation;
 
     if (translate.cache.clear) {
       translate.cache.clear();
