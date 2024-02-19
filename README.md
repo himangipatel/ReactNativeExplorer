@@ -1,6 +1,6 @@
 Android example            |  Ios Arabic example
 :-------------------------:|:-------------------------:
-![Video Preview](./eng-app-flow-android.gif) |![Video Preview](./arabic-app-flow-ios.gif)
+![Video Preview](./eng-app-flow-android.gif)|![Video Preview](./arabic-app-flow-ios.gif)
 
 Android app Video Link : https://github.com/himangipatel/ReactNativeExplorer/blob/main/eng-app-flow-android.mp4
 
