@@ -5,7 +5,7 @@ export interface User {
   user: {
     email: string;
     password: string;
-  }|null;
+  } | null;
 }
 
 const initialState: User = {
@@ -20,14 +20,14 @@ const authSlice = createSlice({
     saveEmailPassword(state, action: PayloadAction<User>) {
       state.user = action.payload.user;
     },
-    logout(state){
+    logout(state) {
       state.user = null;
-    }
+    },
   },
 });
 
 // Export the action creators
-export const {saveEmailPassword,logout} = authSlice.actions;
+export const {saveEmailPassword, logout} = authSlice.actions;
 
 // Export the reducer
 export default authSlice.reducer;

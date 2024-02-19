@@ -12,14 +12,15 @@ import responsive from '../utils/responsive';
 
 interface AppButtonProps {
   label: string;
+  disable:boolean;
   onPress?: (() => void) | undefined;
   style?: StyleProp<ViewStyle> | undefined;
   rightIcon?: React.ReactNode;
 }
 
-const AppButton = ({label, onPress, style, rightIcon}: AppButtonProps) => {
+const AppButton = ({label, onPress, style, rightIcon,disable}: AppButtonProps) => {
   return (
-    <TouchableOpacity style={[styles.btn, style]} onPress={onPress}>
+    <TouchableOpacity style={[styles.btn, style]} onPress={onPress} disabled={disable}>
       <View style={styles.container}>
         <Text style={styles.btnText}>{label}</Text>
         {rightIcon}

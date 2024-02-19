@@ -11,6 +11,7 @@ import React, {useState} from 'react';
 import {selectLanguage} from '../redux/slices/languageSlice';
 import {useAppSelector} from '../redux/store';
 import {colors} from '../utils/colors';
+import useLocalize from '../hooks/useLocalize';
 
 interface AppTextInputProps {
   style?: StyleProp<TextStyle> | undefined;
@@ -25,7 +26,7 @@ interface AppTextInputProps {
 }
 
 const AppTextInput = (props: AppTextInputProps) => {
-  const local = useAppSelector(selectLanguage);
+  const {local} = useLocalize()
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = (isFocused: boolean) => {

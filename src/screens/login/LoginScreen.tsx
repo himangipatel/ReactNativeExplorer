@@ -8,31 +8,24 @@ import AppButton from '../../component/AppButton';
 import useValidateEmailPass from '../../hooks/useValidateIDPass';
 import {colors} from '../../utils/colors';
 import useLocalize from '../../hooks/useLocalize';
-import {saveEmailPassword} from '../../redux/slices/authSlice';
 import {screens} from '../../utils/screens';
 import {Language, setLanguage} from '../../redux/slices/languageSlice';
 import ArrowRight from '../../assets/arrow.svg';
 import {TRANSLATION_KEYS} from '../../utils/translations';
 import responsive from '../../utils/responsive';
 import {useAppDispatch} from '../../redux/store';
-import {RouteProp} from '@react-navigation/native';
 import {AppStatusBar} from '../../component/StatusBar';
-
-type LoginScreenRouteProp = RouteProp<RootStackParamList, 'Login'>;
-
-export type AppLocalParams = {
-  local: string;
-};
+import useLogin from '../../hooks/useLogin';
 
 interface LoginProps {
   navigation: StackNavigationProp<RootStackParamList, 'Login'>;
-  route: LoginScreenRouteProp;
 }
 
-const LoginScreen = ({navigation, route}: LoginProps) => {
+const LoginScreen = ({navigation}: LoginProps) => {
   const dispatch = useAppDispatch();
-  const {translate} = useLocalize();
+  const {translate, local} = useLocalize();
   const translateY = useRef(new Animated.Value(300)).current;
+  const {adduser} = useLogin();
 
   const {
     isValidEmail,
@@ -48,14 +41,11 @@ const LoginScreen = ({navigation, route}: LoginProps) => {
     navigation.replace(screens.splash);
   };
 
+  const isValidData = isValidEmail && isValidPassword;
+
   const handleLogin = () => {
-    if (isValidEmail && isValidPassword) {
-      dispatch(
-        saveEmailPassword({
-          user: {email: email, password: password},
-        }),
-      );
-    }
+    adduser(email, password);
+    navigation.replace(screens.popularMovies);
   };
 
   useEffect(() => {
@@ -84,9 +74,7 @@ const LoginScreen = ({navigation, route}: LoginProps) => {
             onPress={() => handleLanguageChange(Language.ENGLISH)}
             style={[
               styles.smallText,
-              route.params.local == Language.ARABIC
-                ? styles.inActive
-                : styles.active,
+              local == Language.ARABIC ? styles.inActive : styles.active,
             ]}>
             {translate(TRANSLATION_KEYS.ENGLISH)}
           </Text>
@@ -95,9 +83,7 @@ const LoginScreen = ({navigation, route}: LoginProps) => {
             onPress={() => handleLanguageChange(Language.ARABIC)}
             style={[
               styles.smallText,
-              route.params.local == Language.ARABIC
-                ? styles.active
-                : styles.inActive,
+              local == Language.ARABIC ? styles.active : styles.inActive,
             ]}>
             {translate(TRANSLATION_KEYS.ARABIC)}
           </Text>
@@ -137,11 +123,9 @@ const LoginScreen = ({navigation, route}: LoginProps) => {
         <AppButton
           label={translate(TRANSLATION_KEYS.SIGN_IN)}
           rightIcon={rightButton()}
+          disable={!isValidData}
           style={{
-            backgroundColor:
-              isValidEmail && isValidPassword
-                ? colors.primary
-                : colors.buttonBg,
+            backgroundColor: isValidData ? colors.primary : colors.buttonBg,
           }}
           onPress={handleLogin}
         />
