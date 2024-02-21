@@ -24,4 +24,4 @@ export const moviesApi = createApi({
 });
 
 
-export const {useGetMoviesQuery} = moviesApi;
+export const {useGetMoviesQuery,useLazyGetMoviesQuery} = moviesApi;

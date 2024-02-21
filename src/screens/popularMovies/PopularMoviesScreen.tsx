@@ -1,10 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  SafeAreaView,
-} from 'react-native';
+import {View, Text, FlatList, SafeAreaView} from 'react-native';
 import {Movie} from './movies';
 import withLoader from '../../hoc/withLoader';
 import {styles} from './styles';
@@ -20,57 +15,39 @@ import {useAppDispatch} from '../../redux/store';
 import {AppStatusBar} from '../../component/StatusBar';
 import Loader from '../../component/Loader';
 import MovieItem from './MovieItem';
-import { useGetMoviesQuery } from '../../redux/slices/movieSlice';
-
+import {useGetMoviesQuery} from '../../redux/slices/movieSlice';
+import useFetchMovies from '../../hooks/useFetchMovies';
+import useLogin from '../../hooks/useLogin';
 
 interface PopularMovieProps {
   navigation: StackNavigationProp<RootStackParamList, 'PopularMovies'>;
-  startLoader: () => void;
-  dismissLoader: () => void;
+  showLoader: (isVisible: boolean) => void;
 }
 
 const PopularMoviesComponent = ({
   navigation,
-  startLoader,
-  dismissLoader,
+  showLoader,
 }: PopularMovieProps) => {
-  const dispatch = useAppDispatch();
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [isLoadMore, setIsLoadMore] = useState(false);
+  
   const {translate} = useLocalize();
-  const {local} = useLocalize()
+  const {logout} = useLogin();
+  const {data, isError, error, loadMore, isLoadMore, isLoading} =
+    useFetchMovies();
 
-  const {data, error, isLoading, isError} = useGetMoviesQuery({
-    page: currentPage,
-    local:local,
-  });
 
   useEffect(() => {
-    if (data != undefined) {
-      setMovies(movies.concat(data));
-    }
-    if (isLoading) startLoader();
-    else dismissLoader();
-    setIsLoadMore(false);
-  }, [data, isLoading]);
-
-
-  const handleLoadMore = () => {
-    setIsLoadMore(true);
-    setCurrentPage(currentPage + 1);
-  };
+    showLoader(isLoading);
+  }, [isLoading]);
 
   const handleLogout = () => {
-    dispatch(logout());
+    logout();
     navigation.replace(screens.login);
   };
   return (
     <SafeAreaView style={styles.container}>
       <AppStatusBar />
       {isError && <Text>{JSON.stringify(error)}</Text>}
-      {movies && (
+      {data && (
         <>
           <View style={styles.headerContainer}>
             <Text style={styles.title}>
@@ -83,9 +60,9 @@ const PopularMoviesComponent = ({
             />
           </View>
           <FlatList
-            data={movies}
+            data={data}
             renderItem={({item}) => <MovieItem movie={item} />}
-            onEndReached={handleLoadMore}
+            onEndReached={loadMore}
             onEndReachedThreshold={0.1}
             numColumns={2}
             contentContainerStyle={styles.container}

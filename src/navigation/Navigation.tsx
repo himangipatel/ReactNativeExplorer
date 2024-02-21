@@ -4,14 +4,14 @@ import {screens} from '../utils/screens';
 import SplashScreen from '../screens/SplashScreen';
 import {Provider} from 'react-redux';
 import {persistor, store} from '../redux/store';
-import LoginScreen, {AppLocalParams} from '../screens/login/LoginScreen';
+import LoginScreen from '../screens/login/LoginScreen';
 import DashboardScreen from '../screens/popularMovies/PopularMoviesScreen';
 import {PersistGate} from 'redux-persist/integration/react';
 
 export type RootStackParamList = {
   [screens.splash]: undefined;
-  [screens.login]: AppLocalParams;
-  [screens.popularMovies]: AppLocalParams;
+  [screens.login]: undefined;
+  [screens.popularMovies]: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../redux/store";
-import { saveEmailPassword } from "../redux/slices/authSlice";
+import { logout, saveEmailPassword } from "../redux/slices/authSlice";
 
 const useLogin = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -11,7 +11,11 @@ const useLogin = () => {
       }));
   };
 
-  return {adduser}
+
+  const logoutUser=()=>{
+    dispatch(logout());
+  }
+  return {adduser,logout: logoutUser}
 };
 
 

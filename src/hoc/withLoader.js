@@ -33,19 +33,15 @@ const withLoader = WrappedComponent => {
   return props => {
     const [isVisible, setIsVisible] = useState(false);
 
-    const startLoader = () => {
-      setIsVisible(true);
+    const showLoader = (isVisible) => {
+      setIsVisible(isVisible);
     };
 
-    const dismissLoader = () => {
-      setIsVisible(false);
-    };
 
     return (
       <>
         <WrappedComponent
-          startLoader={startLoader}
-          dismissLoader={dismissLoader}
+          showLoader={showLoader}
           {...props}
         />
         <Overlay isVisible={isVisible} />
