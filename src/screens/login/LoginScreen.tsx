@@ -102,6 +102,7 @@ const LoginScreen = ({navigation}: LoginProps) => {
       <View style={styles.bottomContainer}>
         <Animated.View style={{transform: [{translateY}]}}>
           <AppTextInput
+            testID="email-input"
             placeholder={translate(TRANSLATION_KEYS.ENTER_EMAIL)}
             keyboardType="email-address"
             value={email}
@@ -111,6 +112,7 @@ const LoginScreen = ({navigation}: LoginProps) => {
           />
 
           <AppTextInput
+            testID="password-input"
             secureTextEntry
             placeholder={translate(TRANSLATION_KEYS.ENTER_PASSWORD)}
             value={password}

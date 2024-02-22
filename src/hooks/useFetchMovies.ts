@@ -31,7 +31,7 @@ const useFetchMovies = () => {
 
 
 
-  return { data: movies, isLoading, isError,isLoadMore,error,loadMore};
+  return { data: movies, isLoading, isError,isLoadMore,error,loadMore,page};
 };
 
 export default useFetchMovies;

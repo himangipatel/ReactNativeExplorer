@@ -1,17 +1,25 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react-native';
 import LoginScreen from '../../src/screens/login/LoginScreen';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../src/navigation/Navigation';
+import {fireEvent, render} from '@testing-library/react-native';
+import {renderWithProviders} from '../test_utils';
 
-const mockNavigation= {
-    navigate: jest.fn(),
-  };
-  
+const mockNavigation: any = {
+  replace: jest.fn(),
+};
+// const mockRoute: any = jest.fn();
+// const mockDispatch = jest.fn();
+
+// jest.mock('react-redux', () => ({
+// useSelector: jest.fn(),
+// useDispatch: () => mockDispatch,
+// }));
+
 describe('Login', () => {
-  
-    
-  test('renders Login correctly', async () => {
-    render(<LoginScreen navigation={mockNavigation as any}/>)
+  it('renders correctly', () => {
+    const loginUI = renderWithProviders(
+      <LoginScreen navigation={mockNavigation} />,
+    );
+
+    expect(loginUI.toJSON()).toMatchSnapshot();
   });
 });

@@ -23,6 +23,7 @@ interface AppTextInputProps {
   onChangeText?: ((text: string) => void) | undefined;
   showError?: boolean | false;
   errorMessage?: string | '';
+  testID?:string|''
 }
 
 const AppTextInput = (props: AppTextInputProps) => {
@@ -39,6 +40,7 @@ const AppTextInput = (props: AppTextInputProps) => {
   return (
     <View>
       <TextInput
+      testID={props.testID}
         style={[
           props.style,
           styles.textInput,

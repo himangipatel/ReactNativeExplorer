@@ -3,10 +3,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {screens} from '../utils/screens';
 import SplashScreen from '../screens/SplashScreen';
 import {Provider} from 'react-redux';
-import {persistor, store} from '../redux/store';
 import LoginScreen from '../screens/login/LoginScreen';
 import DashboardScreen from '../screens/popularMovies/PopularMoviesScreen';
 import {PersistGate} from 'redux-persist/integration/react';
+import { persistor, store } from '../redux/store';
 
 export type RootStackParamList = {
   [screens.splash]: undefined;

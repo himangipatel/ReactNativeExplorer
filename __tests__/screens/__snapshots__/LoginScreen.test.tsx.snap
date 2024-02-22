@@ -1,0 +1,529 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders Login correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "black",
+        "flex": 1,
+        "padding": 40,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+          "paddingVertical": 100,
+        }
+      }
+    >
+      <Text
+        onPress={[Function]}
+        style={
+          [
+            {
+              "color": "white",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+            {
+              "fontWeight": "bold",
+              "opacity": 1,
+            },
+          ]
+        }
+      >
+        ENGLISH
+      </Text>
+      <View
+        style={
+          {
+            "width": 75,
+          }
+        }
+      />
+      <Text
+        onPress={[Function]}
+        style={
+          [
+            {
+              "color": "white",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+            {
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+          ]
+        }
+      >
+        ARABIC
+      </Text>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "flex": 1,
+          "justifyContent": "flex-end",
+          "transform": [
+            {
+              "translateY": 300,
+            },
+          ],
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "white",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "opacity": 0.7,
+          }
+        }
+      >
+        MOST POPULAR MOVIES OF ALL TIME
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "white",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+            {
+              "fontSize": 24,
+              "opacity": 1,
+              "paddingVertical": 30,
+            },
+          ]
+        }
+      >
+        tell us about your email and password
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "backgroundColor": "white",
+        "flex": 2,
+        "justifyContent": "space-between",
+        "padding": 10,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        {
+          "transform": [
+            {
+              "translateY": 300,
+            },
+          ],
+        }
+      }
+    >
+      <View>
+        <TextInput
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Enter Email ID"
+          placeholderTextColor="#ccc"
+          style={
+            [
+              undefined,
+              {
+                "borderColor": "#ccc",
+                "borderRadius": 5,
+                "borderWidth": 1,
+                "color": "black",
+                "margin": 10,
+                "padding": 15,
+              },
+              {
+                "textAlign": "left",
+              },
+            ]
+          }
+          value=""
+        />
+      </View>
+      <View>
+        <TextInput
+          autoCapitalize="none"
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Enter Password"
+          placeholderTextColor="#ccc"
+          secureTextEntry={true}
+          style={
+            [
+              undefined,
+              {
+                "borderColor": "#ccc",
+                "borderRadius": 5,
+                "borderWidth": 1,
+                "color": "black",
+                "margin": 10,
+                "padding": 15,
+              },
+              {
+                "textAlign": "left",
+              },
+            ]
+          }
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignSelf": "flex-start",
+          "backgroundColor": "gray",
+          "margin": 30,
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignContent": "center",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "white",
+              "fontSize": 22,
+              "padding": 30,
+            }
+          }
+        >
+          Login and Continue
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Login renders correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "black",
+        "flex": 1,
+        "padding": 40,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+          "paddingVertical": 100,
+        }
+      }
+    >
+      <Text
+        onPress={[Function]}
+        style={
+          [
+            {
+              "color": "white",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+            {
+              "fontWeight": "bold",
+              "opacity": 1,
+            },
+          ]
+        }
+      >
+        ENGLISH
+      </Text>
+      <View
+        style={
+          {
+            "width": 75,
+          }
+        }
+      />
+      <Text
+        onPress={[Function]}
+        style={
+          [
+            {
+              "color": "white",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+            {
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+          ]
+        }
+      >
+        ARABIC
+      </Text>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "flex": 1,
+          "justifyContent": "flex-end",
+          "transform": [
+            {
+              "translateY": 300,
+            },
+          ],
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "white",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "opacity": 0.7,
+          }
+        }
+      >
+        MOST POPULAR MOVIES OF ALL TIME
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "white",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "opacity": 0.7,
+            },
+            {
+              "fontSize": 24,
+              "opacity": 1,
+              "paddingVertical": 30,
+            },
+          ]
+        }
+      >
+        tell us about your email and password
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "backgroundColor": "white",
+        "flex": 2,
+        "justifyContent": "space-between",
+        "padding": 10,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        {
+          "transform": [
+            {
+              "translateY": 300,
+            },
+          ],
+        }
+      }
+    >
+      <View>
+        <TextInput
+          autoCapitalize="none"
+          keyboardType="email-address"
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Enter Email ID"
+          placeholderTextColor="#ccc"
+          style={
+            [
+              undefined,
+              {
+                "borderColor": "#ccc",
+                "borderRadius": 5,
+                "borderWidth": 1,
+                "color": "black",
+                "margin": 10,
+                "padding": 15,
+              },
+              {
+                "textAlign": "left",
+              },
+            ]
+          }
+          testID="email-input"
+          value=""
+        />
+      </View>
+      <View>
+        <TextInput
+          autoCapitalize="none"
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Enter Password"
+          placeholderTextColor="#ccc"
+          secureTextEntry={true}
+          style={
+            [
+              undefined,
+              {
+                "borderColor": "#ccc",
+                "borderRadius": 5,
+                "borderWidth": 1,
+                "color": "black",
+                "margin": 10,
+                "padding": 15,
+              },
+              {
+                "textAlign": "left",
+              },
+            ]
+          }
+          testID="password-input"
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignSelf": "flex-start",
+          "backgroundColor": "gray",
+          "margin": 30,
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignContent": "center",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "white",
+              "fontSize": 22,
+              "padding": 30,
+            }
+          }
+        >
+          Login and Continue
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

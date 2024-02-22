@@ -1,7 +1,7 @@
 import LottieView from 'lottie-react-native';
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import { images } from '../utils/images';
+import {images} from '../utils/images';
 
 // Overlay component
 export const Overlay = ({isVisible}) => {
@@ -9,6 +9,7 @@ export const Overlay = ({isVisible}) => {
 
   return (
     <View
+      testID="overlay"
       style={{
         position: 'absolute',
         top: 0,
@@ -33,17 +34,13 @@ const withLoader = WrappedComponent => {
   return props => {
     const [isVisible, setIsVisible] = useState(false);
 
-    const showLoader = (isVisible) => {
+    const showLoader = isVisible => {
       setIsVisible(isVisible);
     };
 
-
     return (
       <>
-        <WrappedComponent
-          showLoader={showLoader}
-          {...props}
-        />
+        <WrappedComponent testID="withLoaderHOC" showLoader={showLoader} {...props} />
         <Overlay isVisible={isVisible} />
       </>
     );

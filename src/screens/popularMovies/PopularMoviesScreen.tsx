@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, FlatList, SafeAreaView} from 'react-native';
-import {Movie} from './movies';
 import withLoader from '../../hoc/withLoader';
 import {styles} from './styles';
-import {logout} from '../../redux/slices/authSlice';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../navigation/Navigation';
 import {screens} from '../../utils/screens';
@@ -11,11 +9,9 @@ import responsive from '../../utils/responsive';
 import Logout from '../../assets/logout.svg';
 import useLocalize from '../../hooks/useLocalize';
 import {TRANSLATION_KEYS} from '../../utils/translations';
-import {useAppDispatch} from '../../redux/store';
 import {AppStatusBar} from '../../component/StatusBar';
 import Loader from '../../component/Loader';
 import MovieItem from './MovieItem';
-import {useGetMoviesQuery} from '../../redux/slices/movieSlice';
 import useFetchMovies from '../../hooks/useFetchMovies';
 import useLogin from '../../hooks/useLogin';
 
@@ -28,12 +24,10 @@ const PopularMoviesComponent = ({
   navigation,
   showLoader,
 }: PopularMovieProps) => {
-  
   const {translate} = useLocalize();
   const {logout} = useLogin();
   const {data, isError, error, loadMore, isLoadMore, isLoading} =
     useFetchMovies();
-
 
   useEffect(() => {
     showLoader(isLoading);

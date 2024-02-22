@@ -1,10 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {persistStore, persistReducer} from 'redux-persist';
+import {persistStore, persistReducer, Persistor} from 'redux-persist';
 import rootReducer from './reducer';
 import {moviesApi} from './slices/movieSlice';
 import { useDispatch, useSelector } from 'react-redux'
 import type { TypedUseSelectorHook } from 'react-redux'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const persistConfig = {
@@ -23,7 +23,7 @@ export const store = configureStore({
     getDefaultMiddleware({serializableCheck:false}).concat(moviesApi.middleware),
 });
 
-export const persistor = persistStore(store);
+export const persistor: Persistor  = persistStore(store);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
