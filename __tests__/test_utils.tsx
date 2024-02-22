@@ -3,6 +3,8 @@ import {render} from '@testing-library/react-native';
 import {Provider} from 'react-redux';
 import {store as mainStore} from '../src/redux/store';
 
+module.exports = "SvgMock";
+
 type Wrapper = PropsWithChildren;
 
 export function renderWithProviders(
